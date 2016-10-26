@@ -1,0 +1,17 @@
+{
+  "service": {
+    "SERVICE": {
+      "impl": "ThriftConnector",
+      "instance": [
+        {
+          "ip": "127.0.0.1",
+          "port": "8088",
+          "sid": "run-osc"
+        }
+      ]
+    }
+  },
+  "connectorConfig": {
+  },
+  "acceptorConfig": []
+}

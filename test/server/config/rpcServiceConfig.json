@@ -1,0 +1,18 @@
+{
+  "service": {
+  },
+  "connectorConfig": {
+      "retryTime": "30",
+      "retryInterval": "5000",
+      "maxPoolSize": 5,
+      "minPoolSize": 2,
+      "idleTimeout": 30000000
+  },
+  "acceptorConfig": [
+    {
+      "ip": "0.0.0.0",
+      "port": "9060",
+      "impl": "ThriftAcceptor"
+    }
+  ]
+}
