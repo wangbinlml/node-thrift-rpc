@@ -42,6 +42,7 @@ struct Msg {
   2: required string body
 }
 
+
 service RPCInvokeService {
-	void invoke(1:required string serviceName, 2:required string methodName, 3: required Msg msg) throws (1:InvalidRequestException invalidReq, 2:TimedOutException timeOut),
+	Msg invoke(1:required string serviceName, 2:required string methodName, 3: required Msg msg) throws (1:InvalidRequestException invalidReq, 2:TimedOutException timeOut),
 }

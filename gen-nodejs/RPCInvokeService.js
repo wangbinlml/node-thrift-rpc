@@ -101,6 +101,7 @@ RPCInvokeService_invoke_args.prototype.write = function(output) {
 };
 
 RPCInvokeService_invoke_result = function(args) {
+  this.success = null;
   this.invalidReq = null;
   this.timeOut = null;
   if (args instanceof ttypes.InvalidRequestException) {
@@ -112,6 +113,9 @@ RPCInvokeService_invoke_result = function(args) {
     return;
   }
   if (args) {
+    if (args.success !== undefined && args.success !== null) {
+      this.success = new ttypes.Msg(args.success);
+    }
     if (args.invalidReq !== undefined && args.invalidReq !== null) {
       this.invalidReq = args.invalidReq;
     }
@@ -134,6 +138,14 @@ RPCInvokeService_invoke_result.prototype.read = function(input) {
     }
     switch (fid)
     {
+      case 0:
+      if (ftype == Thrift.Type.STRUCT) {
+        this.success = new ttypes.Msg();
+        this.success.read(input);
+      } else {
+        input.skip(ftype);
+      }
+      break;
       case 1:
       if (ftype == Thrift.Type.STRUCT) {
         this.invalidReq = new ttypes.InvalidRequestException();
@@ -161,6 +173,11 @@ RPCInvokeService_invoke_result.prototype.read = function(input) {
 
 RPCInvokeService_invoke_result.prototype.write = function(output) {
   output.writeStructBegin('RPCInvokeService_invoke_result');
+  if (this.success !== null && this.success !== undefined) {
+    output.writeFieldBegin('success', Thrift.Type.STRUCT, 0);
+    this.success.write(output);
+    output.writeFieldEnd();
+  }
   if (this.invalidReq !== null && this.invalidReq !== undefined) {
     output.writeFieldBegin('invalidReq', Thrift.Type.STRUCT, 1);
     this.invalidReq.write(output);
@@ -235,7 +252,10 @@ RPCInvokeServiceClient.prototype.recv_invoke = function(input,mtype,rseqid) {
   if (null !== result.timeOut) {
     return callback(result.timeOut);
   }
-  callback(null)
+  if (null !== result.success) {
+    return callback(null, result.success);
+  }
+  return callback('invoke failed: unknown result');
 };
 RPCInvokeServiceProcessor = exports.Processor = function(handler) {
   this._handler = handler

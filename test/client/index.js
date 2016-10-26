@@ -4,7 +4,12 @@ var ThriftConnector = require('../../lib/core/thrift/ThriftConnector');
 var tc = new ThriftConnector();
 tc.start();
 var msg = {
-    header:{
+    header: {
+        protocol:"thrift",
+        tid:"12145455",
+        msgType:"1"
+    },
+    body: {
 
     }
 };
