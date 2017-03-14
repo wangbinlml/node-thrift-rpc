@@ -1,7 +1,19 @@
 var http = require('http');
 var ThriftConnector = require('../../lib/core/thrift/ThriftConnector');
-
+var connectorConfig= {
+    "retryTime": "30",
+        "retryInterval": "5000",
+        "maxPoolSize": 5,
+        "minPoolSize": 2,
+        "idleTimeout": 30000000
+};
+var config = {
+    "ip": "127.0.0.1",
+    "port": "9090",
+    "sid": "run-osc"
+}
 var tc = new ThriftConnector();
+tc.init(config,connectorConfig);
 tc.start();
 var msg = {
     header: {

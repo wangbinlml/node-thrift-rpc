@@ -12,6 +12,11 @@
     }
   },
   "connectorConfig": {
+    "retryTime": "30",
+    "retryInterval": "5000",
+    "maxPoolSize": 5,
+    "minPoolSize": 2,
+    "idleTimeout": 30000000
   },
   "acceptorConfig": []
 }
