@@ -1,5 +1,4 @@
 var http = require('http');
-var ThriftAcceptor = require('../../lib/core/thrift/ThriftAcceptor');
-
-var ta = new ThriftAcceptor();
-ta.start();
+var Rpc = require('../../index');
+var server = Rpc.Server({});
+server.start();
