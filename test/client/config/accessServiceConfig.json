@@ -25,37 +25,6 @@
                     "certFile":"certificate.pem"
                 }
             }
-        ],
-        "socket":[
-            {
-                "ip":"127.0.0.1","port":"9040","impl":"SocketAcceptor"
-            },
-            {
-                "port":"9041","name":"test4multiport","description":"test"
-            }
         ]
-    },
-
-    "apInfo" : {
-        "icbc":{"domain":"10.0.0.1","protocol":"socket","authToken":"password","acsMode":0,"acsPort":9040},
-        "sampleAp":{"domain":"10.0.0.2","protocol":"socket","impl":"SocketConnector","routePolicy":"round-robin",
-            "acsMode":0,"acsPort":9041}
-    },
-
-    "filter" : {
-        "receive" : {
-            "default":[
-                {"name":"messageTracer","impl":"MsgTracer"},
-                {"name":"messageLogger","impl":"MsgLogger"}
-            ]
-        },
-
-        "send" : {
-            "default":[
-                {"name":"messageTracer","impl":"MsgTracer"},
-                {"name":"messageLogger","impl":"MsgLogger"}
-            ]
-        }
-    }
 }
 

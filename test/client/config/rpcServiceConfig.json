@@ -1,22 +1,14 @@
 {
   "service": {
-    "SERVICE": {
-      "impl": "ThriftConnector",
-      "instance": [
-        {
-          "ip": "127.0.0.1",
-          "port": "8088",
-          "sid": "run-osc"
-        }
-      ]
-    }
   },
   "connectorConfig": {
-    "retryTime": "30",
-    "retryInterval": "5000",
-    "maxPoolSize": 5,
-    "minPoolSize": 2,
-    "idleTimeout": 30000000
-  },
-  "acceptorConfig": []
+    "common_service": {
+      "zk_path": "/platform/sms_platform/common_service",
+      "retryTime": "30",
+      "retryInterval": "5000",
+      "maxPoolSize": 5,
+      "minPoolSize": 2,
+      "idleTimeout": 30000000
+    }
+  }
 }
