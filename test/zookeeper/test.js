@@ -14,6 +14,13 @@ var service = {
 
 //utils.create("/platform/service_sms");
 //utils.create("/platform/service_broker/SB");
-utils.mkdirp("/platform/sms_platform/common_service");
+//utils.mkdirp("/platform/sms_platform/common_service");
+
+
+
+
+
+
+utils.delete("/platform/sms_platform/common_service/127.0.0.1:9090");
 //utils.setData("/platform/service_broker/CS_SMS", JSON.stringify(service));
-utils.list("/platform");
+utils.getChildren("/platform/sms_platform/common_service");
