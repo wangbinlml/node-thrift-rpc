@@ -2,8 +2,8 @@
   "service": {
   },
   "connectorConfig": {
-    "common_service": {
-      "zk_path": "/platform/sms_platform/common_service",
+    "biz_service": {
+      "zk_path": "/platform/biz_platform/biz_service",
       "retryTime": "30",
       "retryInterval": "5000",
       "maxPoolSize": 5,

@@ -21,6 +21,8 @@ var service = {
 
 
 
-utils.delete("/platform/sms_platform/common_service/127.0.0.1:9090");
+//utils.delete("/platform/sms_platform/common_service/127.0.0.1:9090");
 //utils.setData("/platform/service_broker/CS_SMS", JSON.stringify(service));
-utils.getChildren("/platform/sms_platform/common_service");
+//utils.mkdirp("/platform/biz_platform/biz_service");
+utils.create("/platform/biz_platform/biz_service/127.0.0.1:9080");
+utils.getChildren("/platform/biz_platform/biz_service");

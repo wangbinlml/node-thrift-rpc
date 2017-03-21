@@ -1,0 +1,8 @@
+{
+  "zk_path": "127.0.0.1:2181",
+  "zk_option":{
+    "retries": 2,
+    "sessionTimeout":30000,
+    "spinDelay": 1000
+  }
+}
