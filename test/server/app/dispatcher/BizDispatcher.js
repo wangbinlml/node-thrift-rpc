@@ -10,12 +10,12 @@ var bizMap;
 /**
  * 说明： 构造函数，
  */
-function BizDispatcherImpl(){
+function BizDispatcher(){
 }
 
-module.exports = BizDispatcherImpl;
+module.exports = BizDispatcher;
 
-BizDispatcherImpl.prototype = {
+BizDispatcher.prototype = {
 
     /**
      *
