@@ -19,7 +19,6 @@ server.on('request', function (req, res) {
         var msg = {
             header: {
                 protocol: "thrift",
-                tid: "12145455",
                 msgType: "1"
             },
             body: {}
