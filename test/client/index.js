@@ -2,6 +2,7 @@ var http = require('http');
 var Rpc = require('../../index');
 Rpc.createApp();
 Rpc.start();
+var client = Rpc.getRpcService();
 
 
 var server = http.createServer();

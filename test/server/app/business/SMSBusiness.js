@@ -30,7 +30,7 @@ SMSBusiness.prototype = {
 
     //业务处理入口
     doBusiness:function(service, method, msg, cb){
-        var body = JSON.parse(msg.body);
+        var body = {};
         body.res = 123;
         msg.body = JSON.stringify(body);
         cb(null, msg);

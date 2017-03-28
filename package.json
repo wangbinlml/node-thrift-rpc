@@ -11,15 +11,17 @@
     "node": ">= 6.2.0"
   },
   "dependencies": {
+    "async": "^2.1.5",
     "chance": "^1.0.6",
+    "fibers": "^1.0.15",
     "generic-pool": "~2.2.2",
     "hat": "0.0.3",
     "lodash": "^4.17.4",
     "log4js": "^1.1.1",
     "node-cache": "^4.1.1",
-    "node-zookeeper-client": "^0.2.2",
     "thrift": "^0.9.3",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "zookeeper": "^3.4.9-3"
   },
   "devDependencies": {},
   "scripts": {

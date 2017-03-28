@@ -4,7 +4,6 @@
  */
 
 var Rpc = require('../../../../index');
-var client = Rpc.Client();
 /**
  * 说明： 构造函数，
  */
@@ -30,9 +29,10 @@ SMSBusiness.prototype = {
 
     //业务处理入口
     doBusiness:function(service, method, msg, cb){
+        var client = Rpc.getRpcService();
         client.send("common_service", "doBusiness", msg, function (err, data) {
             console.log("============",data);
-            var body = JSON.parse(msg.body);
+            var body = JSON.parse(data.body);
             body.res = 456;
             msg.body = JSON.stringify(body);
             cb(null, msg);
