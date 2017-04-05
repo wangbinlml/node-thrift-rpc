@@ -31,11 +31,16 @@ SMSBusiness.prototype = {
     doBusiness:function(service, method, msg, cb){
         var client = Rpc.getRpcService();
         client.send("common_service", "doBusiness", msg, function (err, data) {
-            console.log("============",data);
+           // console.log("============",data);
             var body = JSON.parse(data.body);
             body.res = 456;
             msg.body = JSON.stringify(body);
-            cb(null, msg);
+            client.send("common_service", "doBusiness", msg, function (err, data) {
+                var body = JSON.parse(data.body);
+                body.res = 789;
+                msg.body = JSON.stringify(body);
+                cb(null, msg);
+            });
         });
     }
 };

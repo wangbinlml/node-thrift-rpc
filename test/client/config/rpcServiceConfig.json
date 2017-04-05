@@ -1,13 +1,11 @@
 {
-  "service": {
-  },
-  "connectorConfig": {
+  "connector": {
     "biz_service": {
-      "zk_path": "/platform/biz_platform/biz_service",
+      "service": "/platform/biz_platform/biz_service",
       "retryTime": "30",
       "retryInterval": "5000",
-      "maxPoolSize": 5,
-      "minPoolSize": 2,
+      "maxPoolSize": 500,
+      "minPoolSize": 200,
       "idleTimeout": 30000000
     }
   }

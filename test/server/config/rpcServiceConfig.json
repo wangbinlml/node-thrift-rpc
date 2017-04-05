@@ -1,9 +1,7 @@
 {
-  "service": {
+  "acceptor": {
     "name": "common_service",
-    "zk_path": "/platform/sms_platform/"
-  },
-  "acceptorConfig": {
+    "service": "/platform/sms_platform/common_service",
     "ip": "127.0.0.1",
     "port": "9090"
   }
