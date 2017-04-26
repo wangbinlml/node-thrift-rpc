@@ -1,8 +1,8 @@
 var http = require('http');
 var Rpc = require('../../index');
 var logger = require('../../lib/util/Logger').getLogger("system");
-Rpc.createApp();
-Rpc.start();
+var app = Rpc.createApp();
+app.start();
 var client = Rpc.getRpcService();
 
 var num = 0;
@@ -27,9 +27,11 @@ server.on('request', function (req, res) {
             },
             body: {}
         };
+        var start = new Date().getTime();
         client.send("biz_service", "doBusiness", msg, function (err, data) {
+            var end = new Date().getTime();
             res.writeHead(200, {'Content-Type': 'text/plain'});
-            logger.info(data.header.tid  + '-'+ data.header.invokeMode)
+            logger.info(data.header.tid  + '-'+ data.header.invokeMode+'-'+(end-start))
             res.end(JSON.stringify(data));
         });
     } catch (err) {

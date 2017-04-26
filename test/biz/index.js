@@ -1,3 +1,3 @@
 var Rpc = require('../../index');
-Rpc.createApp({});
-Rpc.start();
+var app = Rpc.createApp({});
+app.start();
