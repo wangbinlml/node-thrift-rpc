@@ -35,12 +35,13 @@ SMSBusiness.prototype = {
             var body = JSON.parse(data.body);
             body.res = 456;
             msg.body = JSON.stringify(body);
-            client.send("common_service", "doBusiness", msg, function (err, data) {
+            /*client.send("common_service", "doBusiness", msg, function (err, data) {
                 var body = JSON.parse(data.body);
                 body.res = 789;
                 msg.body = JSON.stringify(body);
                 cb(null, msg);
-            });
+            });*/
+            cb(null, msg);
         });
     }
 };
