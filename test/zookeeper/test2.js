@@ -1,5 +1,5 @@
-var utils = require('../../lib/util/zookeeperSyncUtils.js');
-var utils2 = require('../../lib/util/ZookeeperUtils').fn();
+var utils = require('../../lib/util/zkSyncUtils.js');
+var utils2 = require('../../lib/util/zkUtils').fn();
 var Fiber = require('fibers');
 //utils.create("/platform/service_sms");
 //utils.create("/platform/service_broker/SB");
