@@ -11,37 +11,41 @@ var Rpc = require('../../../../index');
 var app;
 
 var constant = {
-    'isResponse':1
+    'isResponse': 1
 };
 
 var totaoReq = 0;
 
-function SMSBusiness(){
+function SMSBusiness() {
 }
 
 module.exports = SMSBusiness;
 
 SMSBusiness.prototype = {
 
-    init:function(){
+    init: function () {
         console.log("SMSBusiness init finished");
     },
 
     //业务处理入口
-    doBusiness:function(service, method, msg, cb){
+    doBusiness: function (service, method, msg, cb) {
+        /*var body = msg.body;
+         body.res = "send success";
+         msg.body = JSON.stringify(body);
+         cb(null, msg);*/
         var client = Rpc.getRpcService();
         client.send("common_service", "doBusiness", msg, function (err, data) {
-           // console.log("============",data);
-            var body = JSON.parse(data.body);
-            body.res = 456;
-            msg.body = JSON.stringify(body);
-            /*client.send("common_service", "doBusiness", msg, function (err, data) {
+            // console.log("============",data);
+            //var body = JSON.parse(data.body);
+            //body.res = 456;
+            msg.body = "send success";//JSON.stringify(body);
+            client.send("common_service", "doBusiness", msg, function (err, data) {
                 var body = JSON.parse(data.body);
                 body.res = 789;
                 msg.body = JSON.stringify(body);
                 cb(null, msg);
-            });*/
-            cb(null, msg);
+            });
+            //cb(null, msg);
         });
     }
 };

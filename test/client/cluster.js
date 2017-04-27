@@ -10,21 +10,21 @@ if (cluster.isMaster) {
         cluster.fork();
     }
     cluster.on('exit', function (worker, code, signal) {
-        logger.info('worker ' + worker.process.pid + ' died');
+        console.log('worker ' + worker.process.pid + ' died');
     });
 
     cluster.on('listening', function (worker, address) {
-        logger.info('listening: worker ' + worker.process.pid + ', Address: ' + address.address + ":" + address.port);
+        console.log('listening: worker ' + worker.process.pid + ', Address: ' + address.address + ":" + address.port);
     });
 
     cluster.on('exit', function (worker, code, signal) {
-        logger.info('worker %d died (%s). restarting...',
+        console.log('worker %d died (%s). restarting...',
             worker.process.pid, signal || code);
         cluster.fork();
     });
 
 } else {
-    logger.info('work %s', process.pid + ' connected !');
+    console.log('work %s', process.pid + ' connected !');
     var app = Rpc.createApp();
     app.start();
     var client = Rpc.getRpcService();
@@ -32,13 +32,13 @@ if (cluster.isMaster) {
     var num = 0;
     var server = http.createServer();
     server.on('connection', function (socket) {
-        //logger.info("connection");
+        //console.log("connection");
     });
     server.on('close', function () {
-        logger.info("http server close");
+        console.log("http server close");
     });
     server.on('clientError', function (exception, socket) {
-        logger.info("clientError");
+        console.log("clientError");
     });
     server.on('request', function (req, res) {
         try {
@@ -49,7 +49,7 @@ if (cluster.isMaster) {
                     msgType: "1",
                     invokeMode: num
                 },
-                body: {}
+                body: "{}"
             };
             var start = new Date().getTime();
             client.send("biz_service", "doBusiness", msg, function (err, data) {
@@ -59,7 +59,7 @@ if (cluster.isMaster) {
                 res.end(JSON.stringify(data));
             });
         } catch (err) {
-            logger.info(err);
+            console.log(err);
         }
     });
     server.listen(3000);
