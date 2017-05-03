@@ -17,7 +17,7 @@
     }
   ],
   "levels": {
-    "system":  "DEBUG",
+    "system":  "ERROR",
     "socketManage":  "INFO"
   }
 }

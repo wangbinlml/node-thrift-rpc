@@ -25,7 +25,7 @@ server.on('request', function (req, res) {
                 msgType: "1",
                 invokeMode: num
             },
-            body: {}
+            body: "hello"
         };
         var start = new Date().getTime();
         client.send("biz_service", "doBusiness", msg, function (err, data) {
